@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axiom Ops — AI Platforms Built to Perform</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #000;
+      --surface: #0d0d0d;
+      --card: #141414;
+      --border: #222;
+      --text: #f5f5f7;
+      --muted: #c0c0c5;
+      --dim: #6e6e73;
+      --silver: #a0a0a8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--silver);
+      font-weight: 300;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      background: var(--text);
+      color: var(--black);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: radial-gradient(ellipse at 50% 0%, #1a1a2a 0%, #000 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid #2a2a2a;
+      color: var(--silver);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #c8c8d0, #ffffff, #a0a0a8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-tag {
+      font-size: clamp(14px, 2vw, 18px);
+      color: var(--muted);
+      margin-bottom: 40px;
+      letter-spacing: -0.2px;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--black);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.88;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #2a2a2a;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-ghost:hover {
+      border-color: #555;
+      color: var(--text);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 24px;
+    }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 60px;
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 24px;
+    }
+
+    .stats-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--text);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--dim);
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .thumb-link {
+      display: block;
+      text-decoration: none;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumb-ui {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      opacity: 0.5;
+    }
+
+    .thumb-bar {
+      height: 6px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+      margin-bottom: 4px;
+    }
+
+    .thumb-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .thumb-block {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .thumb-block.h40 {
+      height: 28px;
+    }
+
+    .thumb-block.w100 {
+      width: 100%;
+    }
+
+    .thumb-block.w70 {
+      width: 70%;
+    }
+
+    .thumb-block.w60 {
+      width: 60%;
+    }
+
+    .thumb-block.w50 {
+      width: 50%;
+    }
+
+    .thumb-block.w45 {
+      width: 45%;
+    }
+
+    .thumb-block.w40 {
+      width: 40%;
+    }
+
+    .thumb-block.w30 {
+      width: 30%;
+    }
+
+    .thumb-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chat-bubble {
+      height: 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .chat-bubble.right {
+      width: 60%;
+      align-self: flex-end;
+    }
+
+    .chat-bubble.left {
+      width: 45%;
+      align-self: flex-start;
+    }
+
+    .thumb-label {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .thumb-overlay span {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 22px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+    }
+
+    .thumb-link:hover .thumb-overlay {
+      opacity: 1;
+    }
+
+    .thumb-link:hover .thumb-ui {
+      opacity: 0.25;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    }
+
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .video-placeholder:hover .play-btn {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .play-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+      margin-left: 3px;
+    }
+
+    .video-label {
+      font-size: 12px;
+      color: var(--dim);
+      letter-spacing: 0.5px;
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 10px;
+    }
+
+    .project-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .project-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .project-link:hover {
+      gap: 10px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .about-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .about-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .about-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .about-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .about-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 12px 16px;
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+
+    .about-link:hover {
+      border-color: #444;
+      color: var(--text);
+    }
+
+    .about-link-icon {
+      font-size: 16px;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .cta-section .section-title {
+      margin: 0 auto 16px;
+    }
+
+    .cta-section .section-sub {
+      margin: 0 auto 36px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--black);
+    }
+
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dim);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #333;
+    }
+
+    .footer-link {
+      font-size: 13px;
+      color: var(--dim);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Axiom<span>Ops</span></div>
+    <ul class="nav-links">
+      <li><a href="#platforms">Platforms</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="https://calendly.com/xpertmarxman/15min" target="_blank">Book a Call</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">AI-Powered Business Platforms</div>
+    <h1>From Operations to Intelligence —<br><em>AI Platforms Built to Perform.</em></h1>
+    <p class="hero-tag">Axiom Ops designs and builds intelligent software platforms that help businesses run smarter,
+      scale faster, and operate with precision.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://calendly.com/xpertmarxman/15min" target="_blank">Book a Free Consultation</a>
+      <a class="btn-ghost" href="#platforms">View Our Platforms</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">AI Platforms Launched</div>
+      </div>
+      <div>
+        <div class="stat-num">22+</div>
+        <div class="stat-label">Years Operations Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Custom-Built Solutions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATFORMS -->
+  <section id="platforms">
+    <div class="section-inner">
+      <div class="section-label">Our Platforms</div>
+      <h2 class="section-title">Built for the Way<br>Business Actually Works</h2>
+      <p class="section-sub">Every platform we build is rooted in real operational experience — not theory. These are
+        tools designed to solve problems we've lived firsthand.</p>
+
+      <div class="projects-grid">
+
+        <!-- BlueLineOps -->
+        <div class="project-card">
+          <a href="https://bluelineopsok.vercel.app/" target="_blank" class="thumb-link">
+            <div class="thumb">
+              <img src="https://i.ibb.co/ZzPHLswY/Blue-Line-Ops.jpg" alt="BlueLineOps screenshot"
+                style="width:100%;height:100%;object-fit:cover;display:block;" />
+              <div class="thumb-overlay"><span>Open Project ↗</span></div>
+            </div>
+          </a>
+          <div class="project-body">
+            <div class="project-tag">Warehouse & Fulfillment</div>
+            <div class="project-name">BlueLineOps</div>
+            <p class="project-desc">An operations intelligence platform that helps warehouse and fulfillment teams track
+              inventory, labor, shipments, trailers, and performance in real time.</p>
+          </div>
+        </div>
+
+        <!-- FreelancerOS -->
+        <div class="project-card">
+          <a href="https://freelancer-os-gray.vercel.app/" target="_blank" class="thumb-link">
+            <div class="thumb">
+              <img src="https://i.ibb.co/23qTNkVz/Free-Lancer-Os.jpg" alt="FreelancerOS screenshot"
+                style="width:100%;height:100%;object-fit:cover;display:block;" />
+              <div class="thumb-overlay"><span>Open Project ↗</span></div>
+            </div>
+          </a>
+          <div class="project-body">
+            <div class="project-tag">Freelance Management</div>
+            <div class="project-name">FreelancerOS</div>
+            <p class="project-desc">A freelance business management system that helps independent workers organize
+              clients, projects, tasks, invoices, and workflow from one dashboard.</p>
+          </div>
+        </div>
+
+        <!-- ChatterBot -->
+        <div class="project-card">
+          <a href="https://chatter-bot-chi.vercel.app/" target="_blank" class="thumb-link">
+            <div class="thumb">
+              <img src="https://i.ibb.co/ds47fHrC/Chatter-Bot.jpg" alt="ChatterBot screenshot"
+                style="width:100%;height:100%;object-fit:cover;display:block;" />
+              <div class="thumb-overlay"><span>Open Project ↗</span></div>
+            </div>
+          </a>
+          <div class="project-body">
+            <div class="project-tag">AI & Automation</div>
+            <div class="project-name">ChatterBot</div>
+            <p class="project-desc">A business-focused AI chatbot platform that lets companies train custom agents for
+              customer support, internal workflows, and operational knowledge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="background: var(--surface); border-top: 1px solid var(--border);">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-label">About Axiom Ops</div>
+          <h2 class="section-title" style="margin-bottom:20px">Operators Who Build.</h2>
+          <p>Axiom Ops was founded on a simple premise — the best software is built by people who have actually done the
+            work. With over a decade in warehouse operations, supply chain management, and fulfillment systems, we build
+            AI-powered platforms that solve real problems.</p>
+          <p>We don't just write code. We translate operational expertise into intelligent tools that perform under
+            real-world conditions — at scale, under pressure, and with precision.</p>
+          <div class="about-pills">
+            <span class="pill">React</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">OpenAI API</span>
+            <span class="pill">AI Agents</span>
+            <span class="pill">MCP Servers</span>
+            <span class="pill">Supply Chain</span>
+            <span class="pill">Warehouse Systems</span>
+          </div>
+        </div>
+        <div>
+          <div class="about-card">
+            <h3>Let's Work Together</h3>
+            <p>Whether you need a custom platform, an AI integration, or an operational software audit — we're ready to
+              build what your business needs.</p>
+            <div class="about-links">
+              <a class="about-link" href="https://calendly.com/xpertmarxman/15min" target="_blank">
+                <span class="about-link-icon">📅</span>
+                Book a Free 15-Min Consultation
+              </a>
+              <a class="about-link" href="https://github.com/alex-sysdev-dev" target="_blank">
+                <span class="about-link-icon">💻</span>
+                github.com/alex-sysdev-dev
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <div class="section-label">Get Started</div>
+      <h2 class="section-title">Ready to Build Something Intelligent?</h2>
+      <p class="section-sub">Book a free 15-minute call and let's talk about what Axiom Ops can build for your business.
+      </p>
+      <a class="btn-primary" href="https://calendly.com/xpertmarxman/15min" target="_blank">Book a Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Axiom Ops</div>
+    <div class="footer-copy">© 2026 Axiom Ops. All rights reserved.</div>
+    <a class="footer-link" href="https://github.com/alex-sysdev-dev" target="_blank">GitHub</a>
+  </footer>
+
+</body>
+
+</html>
