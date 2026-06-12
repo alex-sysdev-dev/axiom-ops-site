@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #000000;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  color: #f5f5f7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.25);
+  color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+}
+
+/* Hero decorative layers */
+.hero-reflection {
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+  filter: blur(32px);
+}
+
+.hero-vignette {
+  background: radial-gradient(ellipse 120% 80% at 50% 100%, #000 0%, transparent 60%);
+}
+
+.hero-headline-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated grid reflection */
+@keyframes grid-reflect {
+  0% {
+    transform: translate(-30%, -20%) scale(1);
+    opacity: 0.35;
+  }
+  33% {
+    transform: translate(55%, 15%) scale(1.15);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(20%, 65%) scale(0.9);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-30%, -20%) scale(1);
+    opacity: 0.35;
+  }
+}
+
+.grid-reflect {
+  will-change: transform, opacity;
+  animation: grid-reflect 14s ease-in-out infinite;
+}
