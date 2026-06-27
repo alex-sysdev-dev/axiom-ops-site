@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">AxiomOps geometry mark</title>
+  <desc id="desc">A technical A-shaped geometry logo with construction circles and connection nodes.</desc>
+  <defs>
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="transparent" />
+  <g fill="none" stroke="#f5f5f5" stroke-linecap="round" stroke-linejoin="round">
+    <g opacity=".38" stroke-width="1.4" stroke-dasharray="7 9">
+      <circle cx="256" cy="139" r="71" />
+      <circle cx="119" cy="338" r="63" />
+      <circle cx="393" cy="338" r="63" />
+      <circle cx="256" cy="244" r="42" />
+      <line x1="256" y1="68" x2="256" y2="369" />
+      <line x1="92" y1="244" x2="420" y2="244" />
+      <line x1="132" y1="342" x2="256" y2="139" />
+      <line x1="380" y1="342" x2="256" y2="139" />
+    </g>
+    <g opacity=".22" stroke-width="1">
+      <line x1="78" y1="32" x2="434" y2="32" />
+      <line x1="78" y1="78" x2="156" y2="78" />
+    </g>
+    <g filter="url(#soft-glow)" stroke-width="8">
+      <path d="M78 374 222 88h68l144 286h-48L257 134 126 374Z" />
+      <path d="M176 338 256 198l80 140" />
+      <path d="M119 338 256 260l137 78" />
+      <path d="M256 198v62" />
+    </g>
+    <g filter="url(#soft-glow)" stroke-width="5">
+      <circle cx="256" cy="244" r="25" />
+      <circle cx="119" cy="338" r="28" />
+      <circle cx="393" cy="338" r="28" />
+    </g>
+    <g fill="#f5f5f5" stroke="none" opacity=".9">
+      <circle cx="256" cy="244" r="8" />
+      <circle cx="119" cy="338" r="8" />
+      <circle cx="393" cy="338" r="8" />
+    </g>
+  </g>
+</svg>

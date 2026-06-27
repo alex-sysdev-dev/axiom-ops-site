@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const stats = [
@@ -22,14 +23,28 @@ export default function Hero() {
       />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div
+          className="pointer-events-none absolute right-4 top-1/2 hidden w-[34rem] -translate-y-1/2 opacity-[0.16] lg:block"
+          aria-hidden="true"
+        >
+          <Image
+            src="/axiomops-geometry-logo.svg"
+            alt=""
+            width={512}
+            height={512}
+            className="h-auto w-full"
+            priority
+          />
+        </div>
+
         {/* Label */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#222] bg-[#0d0d0d] text-xs text-[#888] font-medium mb-10">
+        <div className="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#222] bg-[#0d0d0d] text-xs text-[#888] font-medium mb-10">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500" aria-hidden="true" />
           Operations Technology Firm
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.04] text-white max-w-3xl mb-6">
+        <h1 className="relative text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.04] text-white max-w-3xl mb-6">
           Operations{' '}
           <span className="hero-headline-gradient">Technology</span>
           <br />
@@ -37,13 +52,13 @@ export default function Hero() {
         </h1>
 
         {/* Supporting copy */}
-        <p className="text-lg sm:text-xl text-[#888] max-w-2xl leading-relaxed mb-10">
+        <p className="relative text-lg sm:text-xl text-[#888] max-w-2xl leading-relaxed mb-10">
           AxiomOps is a technology firm building software for warehouse management, government contracting,
           defense logistics, and commercial operations — from the factory floor to the executive suite.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="relative flex flex-col sm:flex-row gap-3">
           <Link
             href="/#products"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold bg-white text-black rounded-xl hover:bg-gray-100 transition-colors duration-150"
@@ -59,7 +74,7 @@ export default function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 flex flex-wrap gap-10 sm:gap-16">
+        <div className="relative mt-20 flex flex-wrap gap-10 sm:gap-16">
           {stats.map((stat) => (
             <div key={stat.label}>
               <div className="text-3xl font-bold text-white tracking-tight">{stat.value}</div>
