@@ -31,10 +31,10 @@ export default function Footer() {
               Operations technology for commercial and government sectors. Building software that improves operational decision making at scale.
             </p>
             <a
-              href="mailto:hello@axiomops.com"
+              href="mailto:xpertmarxman@gmail.com"
               className="inline-block mt-6 text-sm text-[#888] hover:text-white transition-colors"
             >
-              xpertmarman@gmail.com
+              xpertmarxman@gmail.com
             </a>
           </div>
 

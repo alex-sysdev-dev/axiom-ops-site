@@ -49,7 +49,7 @@ export default function Navigation() {
             {/* Desktop CTA */}
             <div className="hidden md:flex">
               <a
-                href="mailto:hello@axiomops.com"
+                href="mailto:xpertmarxman@gmail.com"
                 className="px-4 py-2 text-sm font-semibold bg-white text-black rounded-lg hover:bg-gray-100 transition-colors duration-150"
               >
                 Contact Us
@@ -91,7 +91,7 @@ export default function Navigation() {
               </Link>
             ))}
             <a
-              href="mailto:hello@axiomops.com"
+              href="mailto:xpertmarxman@gmail.com"
               className="mt-3 px-4 py-2.5 text-sm font-semibold bg-white text-black rounded-lg hover:bg-gray-100 transition-colors text-center"
             >
               Contact Us

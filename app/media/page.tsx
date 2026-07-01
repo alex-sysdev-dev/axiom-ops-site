@@ -66,10 +66,10 @@ export default function MediaPage() {
             For press inquiries and partnership opportunities, reach out directly.
           </p>
           <a
-            href="mailto:hello@axiomops.com"
+            href="mailto:xpertmarxman@gmail.com"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold bg-white text-black rounded-xl hover:bg-gray-100 transition-colors duration-150"
           >
-            Xpertmarxman@gmail.com
+            xpertmarxman@gmail.com
           </a>
         </div>
       </section>

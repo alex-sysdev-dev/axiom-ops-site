@@ -37,7 +37,7 @@ export default function Vision() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="mailto:hello@axiomops.com"
+              href="mailto:xpertmarxman@gmail.com"
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold bg-white text-black rounded-xl hover:bg-gray-100 transition-colors duration-150"
             >
               Get In Touch

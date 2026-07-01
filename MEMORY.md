@@ -7,3 +7,8 @@
 **What was decided:** Add a Government R&D / SBIR Capabilities block inside the existing home-page capabilities section, using three cards for VendorWatch-Gov, BlueLineOps Digital Twin, and Atlas ProposalOps, plus the SBIR priority order.
 **Why:** Alexander wanted the AxiomOps site to position the company around auditable AI operations platforms for logistics, vendor risk, compliance, and mission-readiness environments while keeping DLA VendorWatch as the first SBIR priority.
 **What was rejected:** Replacing the existing home-page structure or rewriting unrelated AxiomOps copy. The update stays scoped to the requested capabilities content.
+
+## 2026-07-01, Contact email routing
+**What was decided:** Route every visible contact CTA and contact email link to `xpertmarxman@gmail.com`.
+**Why:** Alexander requested that the contact sales card and all contact paths send mail to `xpertmarxman@gmail.com`.
+**What was rejected:** Keeping `hello@axiomops.com` as the site contact target or leaving inconsistent displayed email casing/typos.
